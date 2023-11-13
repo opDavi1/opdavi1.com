@@ -77,3 +77,15 @@ body {
 #nav-bar a:hover {
     color: var(--text-light);
 }
+
+#img-gallery-link {
+    font-size: 2.5rem;
+    font-family: 'Rubik Mono One', monospace;
+    color: var(--text);
+    text-align: center;
+    text-decoration: none;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-left: 0;
+    margin-right: 0;
+}
