@@ -3,7 +3,7 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-app.use("/assets", express.static(path.join(__dirname, "static")));
+app.use("/assets", express.static(path.join(__dirname, "assets")));
 app.use(express.static(path.join(__dirname, "views"))); //might not be needed
 
 app.get("/", (req, res) => {
@@ -32,7 +32,7 @@ app.get("/image-gallery/:page", (req, res) => {
 });
 
 app.use((req, res) => {
-    res.status(404).render("error");
+    res.status(404).render("404 Not Found");
 })
 
 app.listen(PORT, () => {
