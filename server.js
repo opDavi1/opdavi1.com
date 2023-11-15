@@ -4,7 +4,7 @@ const app = express();
 const PORT = 3000;
 
 app.use("/assets", express.static(path.join(__dirname, "static")));
-app.use(express.static(path.join(__dirname, "views")));
+app.use(express.static(path.join(__dirname, "views"))); //might not be needed
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "index.html"), (err) => {
@@ -15,12 +15,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/image-gallery", (req, res) => {
-     res.sendFile(path.join(__dirname, "views", `img-gallery1.html`), (err) => {
+     res.sendFile(path.join(__dirname, "views", "img-gallery1.html"), (err) => {
         if(err) {
             res.sendStatus(500);
         }
     });
-})
+});
 
 app.get("/image-gallery/:page", (req, res) => {
     let page = req.params.page;
@@ -34,3 +34,18 @@ app.get("/image-gallery/:page", (req, res) => {
 app.listen(PORT, () => {
     console.log(`opdavi1.com Server listening on localhost:${PORT}`);
 });
+
+app.use(app.router);
+app.use((req, res) => {
+    res.status(404);
+    if(req.accepts("html")) {
+        res.render('404', { url: req.url });
+        return;
+    }
+
+    if(req.accepts("json")) {
+        res.json({error: "Not Found"});
+        return;
+    }
+    res.type("text").send("Not Found");
+})
