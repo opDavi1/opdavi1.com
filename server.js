@@ -31,21 +31,10 @@ app.get("/image-gallery/:page", (req, res) => {
     });
 });
 
+app.use((req, res) => {
+    res.status(404).render("error");
+})
+
 app.listen(PORT, () => {
     console.log(`opdavi1.com Server listening on localhost:${PORT}`);
 });
-
-app.use(app.router);
-app.use((req, res) => {
-    res.status(404);
-    if(req.accepts("html")) {
-        res.render('404', { url: req.url });
-        return;
-    }
-
-    if(req.accepts("json")) {
-        res.json({error: "Not Found"});
-        return;
-    }
-    res.type("text").send("Not Found");
-})
