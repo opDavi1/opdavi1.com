@@ -31,10 +31,11 @@ app.get("/image-gallery/:page", (req, res) => {
     });
 });
 
-app.use((req, res) => {
-    res.status(404).render("404 Not Found");
-})
-
 app.listen(PORT, () => {
     console.log(`opdavi1.com Server listening on localhost:${PORT}`);
 });
+
+//404 handler, keep at bottom
+app.use((req, res) => {
+    res.status(404).send("404 Not Found");
+})
