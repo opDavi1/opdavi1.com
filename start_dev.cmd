@@ -1,2 +1,2 @@
-nodemon server.js
+npm run start:dev
 pause
