@@ -31,11 +31,20 @@ app.get("/image-gallery/:page", (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`opdavi1.com Server listening on localhost:${PORT}`);
+app.get("/store", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "store.html"), (err) => {
+        if(err) {
+            res.sendStatus(500);
+        }
+    });
 });
 
 //404 handler, keep at bottom
 app.use((req, res) => {
     res.status(404).send("404 Not Found");
-})
+});
+
+app.listen(PORT, () => {
+    console.log(`opdavi1.com Server listening on localhost:${PORT}`);
+});
+
