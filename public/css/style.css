@@ -1,5 +1,19 @@
+body {
+    background-color: pink;
+}
+
 .center {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+
+}
+
+nav a {
+    display: block;
+}
+
+
+.copyright {
+
 }
