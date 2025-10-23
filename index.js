@@ -19,7 +19,6 @@ function renderWithViewCout(res, page) {
     } else {
       visitorCount = row.visits + 1;
     }
-    console.log(`${page}: ${visitorCount}`)
     db.run('UPDATE visitorcount SET visits = ? WHERE page = ?', visitorCount, page)
     res.render(`pages/${page}`, { visitorCount: visitorCount })
   })
