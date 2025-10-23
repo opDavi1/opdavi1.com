@@ -19,7 +19,7 @@ function renderWithViewCout(res, page) {
     } else {
       visitorCount = row.visits + 1;
     }
-    console.log(visitorCount)
+    console.log(`${page}: ${visitorCount}`)
     db.run('UPDATE visitorcount SET visits = ? WHERE page = ?', visitorCount, page)
     res.render(`pages/${page}`, { visitorCount: visitorCount })
   })
@@ -43,7 +43,7 @@ app.get("/pgp", (req, res) => {
 })
 
 app.use((req, res) => {
-  renderWithViewCout(res, "404")
+  res.status(404).render("pages/404")
 })
 
 app.listen(port, () => {
