@@ -9,11 +9,10 @@ body {
 
 }
 
-nav ul li {
-    display: block;
+nav ul {
+    padding: 0;
 }
 
-
-.copyright {
-
+nav ul li {
+    display: block;
 }
