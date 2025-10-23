@@ -6,28 +6,36 @@ const port = 3000
 
 const db = new sqlite3.Database("data.db")
 
+function renderWithViewCout(res, page) {
+  db.get('SELECT visits FROM visitorcount WHERE page = ?', page, (err, row) => {
+    if(err) {
+      console.error(err)
+      res.render(`pages/${page}`)
+      return;
+    }
+    if (row == undefined) {
+      db.run('INSERT INTO visitorcount (page, visits) VALUES (?, 1)', page)
+      visitorCount = 1
+    } else {
+      visitorCount = row.visits + 1;
+    }
+    console.log(visitorCount)
+    db.run('UPDATE visitorcount SET visits = ? WHERE page = ?', visitorCount, page)
+    res.render(`pages/${page}`, { visitorCount: visitorCount })
+  })
+}
+
 db.run("CREATE TABLE IF NOT EXISTS visitorcount (page TEXT PRIMARY KEY, visits INTEGER)")
 
 app.set("view engine", "ejs")
 app.use(express.static(path.join(__dirname, "public")))
 
 app.get('/', (req, res) => {
-  db.get('SELECT visits FROM visitorcount WHERE page = "index"', (err, row) => {
-    if(err) {
-      res.render("pages/index")
-      return;
-    }
-    if (row == undefined) {
-      db.run('INSERT INTO visitorcount (page, visits) VALUES ("index", 1)')
-    }
-    visitorCount = row.visits + 1;
-    db.run('UPDATE visitorcount SET visits = ? WHERE page = "index"', visitorCount)
-    res.render("pages/index", { visitorCount: visitorCount })
-  })
+  renderWithViewCout(res, "index")
 })
 
 app.get("/about", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "pages", "about.html"))
+  res.render("pages/about")
 })
 
 app.get("/pgp", (req, res) => {
@@ -35,7 +43,7 @@ app.get("/pgp", (req, res) => {
 })
 
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "pages", "404.html"))
+  renderWithViewCout(res, "404")
 })
 
 app.listen(port, () => {
