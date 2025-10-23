@@ -16,3 +16,10 @@ nav ul {
 nav ul li {
     display: block;
 }
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 50vw;
+    transform: translateX(-50%);
+}
