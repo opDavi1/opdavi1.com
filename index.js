@@ -37,6 +37,11 @@ app.get("/about", (req, res) => {
   res.render("pages/about")
 })
 
+app.get("/minecraft", (req, res) => {
+  res.render("pages/minecraft")
+})
+
+
 app.get("/pgp", (req, res) => {
   res.contentType("text/plain").sendFile(path.join(__dirname, "public", "pgp.pub"))
 })
@@ -46,5 +51,5 @@ app.use((req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`opdavi1.com listening on port ${port}`)
 })
