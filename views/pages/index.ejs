@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>opDavi1</title>
     <link href="/css/style.css" rel="stylesheet">
-    <script src="/js/visitorCount.js"></script>
   </head>
   <body>
-    <marquee behavior="scroll" direction="left">:3</marquee>
     <h1 class="center">Welcome :3</h1>
-    <h2 class="subtitle center">Please make yourself at home ^^</h2>
+    <h2 class="subtitle center">Please make yourself at home</h2>
+    <div class="navbar">
     <nav id="nav" class="center">
       <ul>
         <li><a href="/gallery">Gallery</a></li>
@@ -20,16 +19,19 @@
         <li><a href="/pgp">Public Key</a></li>
       </ul>
     </nav>
+    </div>
     
     <h2 class="center">My presence is felt all throughout the internet and is inescapable :3</h2>
+    <div class="navbar">
     <nav id="external-links" class="center">
       <ul>
-        <li><a href="https://github.com/opDavi1", rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;Github</a></li>
-        <li><a href="https://opdavi1.bandcamp.com/music", rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;Bandcamp</a></li>
-        <li><a href="https://www.youtube.com/@opDavi1", rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;YouTube</a></li>
-        <li><a href="https://www.instagram.com/opdavi1/", rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;Instagram</a></li>
+        <li><a href="https://github.com/opDavi1" rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;Github</a></li>
+        <li><a href="https://opdavi1.bandcamp.com/music" rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;Bandcamp</a></li>
+        <li><a href="https://www.youtube.com/@opDavi1" rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;YouTube</a></li>
+        <li><a href="https://www.instagram.com/opdavi1/" rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;Instagram</a></li>
       </ul>
     </nav>
+    </div>
     
     <p class="center">This page has been visited <span class="visitor-count"><%= visitorCount %></span> times.</p>
     <%- include ("../partials/footer.ejs"); %>
