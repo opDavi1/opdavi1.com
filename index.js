@@ -30,7 +30,11 @@ app.set("view engine", "ejs")
 app.use(express.static(path.join(__dirname, "public")))
 
 app.get('/', (req, res) => {
-  renderWithViewCout(res, "index")
+  res.render("pages/index")
+})
+
+app.get("/home", (req, res) => {
+  renderWithViewCout(res, "home")
 })
 
 app.get("/about", (req, res) => {
