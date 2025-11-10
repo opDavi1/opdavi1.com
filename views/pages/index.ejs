@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>opDavi1</title>
-    <link href="/css/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <h1 class="center">Welcome :3</h1>
-    <h2 class="subtitle center">Please make yourself at home</h2>
-    <div class="navbar">
-    <nav id="nav" class="center">
-      <ul>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="/diary">Diary</a></li>
-        <li><a href="/minecraft">Minecraft Server</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/pgp">Public Key</a></li>
-      </ul>
-    </nav>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>opdavi1</h1>
+        <p>
+            Welcome to my website :3
+        </p>
+        <p>
+            I'll add anything I find interesting here! Please take a look! :3
+            Firefox (or any of its decendents) is recommended for viewing this website. This website tries to be mobile friendly, but it's not guaranteed.
+        </p>
+        <p>
+            Below are some other cool websites! You should check them out as well :3
+        </p>
+        <h2><a href="/home" class="link">Enter!!! :3</a></h2>
     </div>
-    
-    <h2 class="center">My presence is felt all throughout the internet and is inescapable :3</h2>
-    <div class="navbar">
-    <nav id="external-links" class="center">
-      <ul>
-        <li><a href="https://github.com/opDavi1" rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;Github</a></li>
-        <li><a href="https://opdavi1.bandcamp.com/music" rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;Bandcamp</a></li>
-        <li><a href="https://www.youtube.com/@opDavi1" rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;YouTube</a></li>
-        <li><a href="https://www.instagram.com/opdavi1/" rel="noreferrer noopener" target="_blank">&gt;&gt;&gt;Instagram</a></li>
-      </ul>
-    </nav>
+    <div class="wrapper buttons">
+        <!-- espy -->
+        <a target="_blank" href="https://espy.world/"><img src="/images/buttons/espy-world_button.gif" style="image-rendering: pixelated" /></a>
+        <!-- slitherbop -->
+        <a target="_blank" href="https://slitherbop.neocities.org/"><img src="/images/buttons/Slitherbop_Button.gif" style="image-rendering: pixelated" /></a>
     </div>
-    
-    <p class="center">This page has been visited <span class="visitor-count"><%= visitorCount %></span> times.</p>
-    <%- include ("../partials/footer.ejs"); %>
-  </body>
+    <footer>
+        <p class="copyright center">Copyright &copy; 2025 - &infin; opdavi1 :3! Trans rights reserved.</p>
+    </footer>
+</body>
 </html>
